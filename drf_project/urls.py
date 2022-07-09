@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from store import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('today/', views.today, name="today"),
+    path('hello_world/', views.hello, name="hello"),
+    path('my_name/<str:name_of_hacker>/', views.name, name="name"),
+    path('calculator/', views.calculator, name="calculator"),
+    path('store/', views.StoreApiView.as_view(), name="store"),
 ]
