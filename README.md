@@ -1,4 +1,4 @@
-# DjangoREST_Framework_HomeWokr_S-PRO
+# DjangoREST_Framework_HomeWokr_S-PRO_week1
 
 
 Завдання 1
