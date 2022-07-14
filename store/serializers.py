@@ -15,11 +15,16 @@ class CalculatorSerializer(serializers.Serializer):
         return validated_data
 
 
-class StoreSerializer(serializers.Serializer):
-    name = serializers.CharField()
-    description = serializers.CharField()
-    rating = serializers.IntegerField()
+class StoreSerializer(serializers.ModelSerializer):
 
-    def create(self, validated_data):
-        store = Store.objects.create(**validated_data)
-        return store
+    class Meta:
+        model = Store
+        fields = [
+            'id',
+            'name',
+            'description',
+            'rating',
+            'owner',
+            'status'
+        ]
+        read_only_fields = ['owner', 'status']

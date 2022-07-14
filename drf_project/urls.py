@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from store import views
+from store.urls import store_router, user_stores_router, admin_stores_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,7 @@ urlpatterns = [
     path('my_name/<str:name_of_hacker>/', views.name, name="name"),
     path('calculator/', views.calculator, name="calculator"),
     path('store/', views.StoreApiView.as_view(), name="store"),
+    path('stores/', include(store_router.urls), name="stores"),
+    path('my_stores/', include(user_stores_router.urls), name="user_stores"),
+    path('admin_stores/', include(admin_stores_router.urls), name="admin_stores")
 ]
